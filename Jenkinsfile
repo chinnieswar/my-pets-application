@@ -44,7 +44,7 @@ pipeline{
             steps{
                 echo "We are deploying to staging environment with ip ${serversMap[params.deployenv]}"
                 sshagent(['tomcat-uat']) {
-                    sh "scp -o StrictHostKeyChecking=no  target/car-rentals*.war  ${Tomcat_host_two}:/opt/tomcat8/webapps/"
+                    sh "scp -o StrictHostKeyChecking=no  target/pets-app*.war  ${Tomcat_host_two}:/opt/tomcat8/webapps/"
                     sh "ssh ${Tomcat_host_two} ${Tomcat_svc} stop"
                     sh "ssh ${Tomcat_host_two} ${Tomcat_svc} start"
                 }
@@ -58,7 +58,7 @@ pipeline{
             steps{
                 echo "We are deploying to production environment with ip ${serversMap[params.deployenv]}"
                 sshagent(['tomcat-prod']) {
-                    sh "scp -o StrictHostKeyChecking=no  target/car-rentals*.war  ${Tomcat_host_three}:/opt/tomcat8/webapps/"
+                    sh "scp -o StrictHostKeyChecking=no  target/pets-app*.war  ${Tomcat_host_three}:/opt/tomcat8/webapps/"
                     sh "ssh ${Tomcat_host_three} ${Tomcat_svc} stop"
                     sh "ssh ${Tomcat_host_three} ${Tomcat_svc} start"
                 }
