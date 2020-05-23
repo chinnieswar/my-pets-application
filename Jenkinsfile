@@ -7,9 +7,9 @@ pipeline{
       choice choices: ['develop', 'release', 'master'], description: 'Choose the branch to deploy', name: 'branchname'
     }
 	environment {
-        Tomcat_host_one = "ec2-user@54.173.142.4"
-		Tomcat_host_two = "ec2-user@35.173.237.149"
-		Tomcat_host_three = "ec2-user@18.207.175.245"
+        Tomcat_host_one = "ec2-user@172.31.32.179"
+		Tomcat_host_two = "ec2-user@172.31.55.12"
+		Tomcat_host_three = "ec2-user@172.31.53.219"
         Tomcat_svc = "/usr/sbin/service tomcat"
     }
 	
