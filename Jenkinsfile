@@ -30,7 +30,7 @@ pipeline{
             steps{
                 echo "We are deploying to dev environment with ip ${serversMap[params.deployenv]}"
                 sshagent(['tomcat-dev']) {
-                    sh "scp -o StrictHostKeyChecking=no  target/car-rentals*.war  ${Tomcat_host_one}:/opt/tomcat8/webapps/"
+                    sh "scp -o StrictHostKeyChecking=no  target/pets-app*.war  ${Tomcat_host_one}:/opt/tomcat8/webapps/"
                     sh "ssh ${Tomcat_host_one} ${Tomcat_svc} stop"
                     sh "ssh ${Tomcat_host_one} ${Tomcat_svc} start"
                 }
